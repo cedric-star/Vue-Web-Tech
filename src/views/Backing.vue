@@ -1,9 +1,16 @@
 <template>
     
-    Backing
+    <NavigationBar/>
+    backing
+    <Footer/>
 </template>
 <script>
+import NavigationBar from '../components/NavigationBar.vue';
+import Footer from '../components/Footer.vue';
 export default {
-    name: 'Backing'
+    components: {
+        NavigationBar,
+        Footer
+    }
 }
 </script>

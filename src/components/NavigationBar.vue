@@ -3,10 +3,10 @@
         
         <div>
             <ul class="nav_ul" id="nav_ul">
-                <tr><router-link to="/home"class="nav_list">Home</router-link></tr>
-                <tr><router-link to="/start"class="nav_list">Start</router-link></tr>
-                <tr><router-link to="/cooking"class="nav_list">Cooking</router-link></tr>
-                <tr><router-link to="/backing"class="nav_list">Backing</router-link></tr>
+                <li><router-link to="/home"class="nav_list">Home</router-link></li>
+                <li><router-link to="/start"class="nav_list">Start</router-link></li>
+                <li><router-link to="/cooking"class="nav_list">Cooking</router-link></li>
+                <li><router-link to="/backing"class="nav_list">Backing</router-link></li>
             </ul>
         </div>
         <div class="rollout">

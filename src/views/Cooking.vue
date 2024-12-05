@@ -1,8 +1,20 @@
 <template>
-    cooking
+    <NavigationBar/>
+    <CreateRecipe/>
+    <Footer/>
+    
 </template>
-<script>
+  
+  <script>
+    import CreateRecipe from '../components/CreateRecipe.vue';
+  
+    import NavigationBar from '../components/NavigationBar.vue';
+    import Footer from '../components/Footer.vue';
 export default {
-    name: 'Cooking'
-}
-</script>
+    components: {
+        NavigationBar,
+        CreateRecipe,
+        Footer
+    },
+    }
+  </script>
