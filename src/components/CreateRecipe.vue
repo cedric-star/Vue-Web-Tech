@@ -6,7 +6,7 @@
         <input placeholder="Ingredients" type="text" name="ingredients" id="ingredients" v-model="this.ingredients">
         <input placeholder="Process" type="text" name="process" id="process" v-model="this.process">
 
-        <Recipe :name="`${name}`" :ingredients="`${ingredients}`" :process="`${process}`"></Recipe>
+        <Recipe :type="`${type}`" :name="`${name}`" :ingredients="`${ingredients}`" :process="`${process}`"></Recipe>
 
         <button @click="this.senddata()">Create</button>
     </div>
@@ -16,11 +16,18 @@
   import Recipe from '../components/Recipe.vue';
   
   export default {
+    props: {
+        type: {
+        type: String,
+        required: true
+      }
+    },
     components: {
       Recipe
     },
     data() {
       return {
+
         name: "",
         ingredients: "",
         process: ""
@@ -33,7 +40,8 @@
         },
         senddata() {
         console.log('fetching...');
-        const datensatz = {
+        const data = {
+            type: this.type,
             name: this.name,
             ingredients: this.ingredients,
             process: this.process
@@ -44,7 +52,7 @@
             headers: {
                 'Conten-Type': 'application/json'
             },
-        body: JSON.stringify(datensatz)
+        body: JSON.stringify(data)
         })
         .then(response => {
             if (!response.ok) {
