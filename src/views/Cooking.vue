@@ -1,6 +1,6 @@
 <template>
     <NavigationBar/>
-    <CreateRecipe type="backing"/>
+    <CreateRecipe type="cooking"/>
     <Footer/>
     
 </template>
