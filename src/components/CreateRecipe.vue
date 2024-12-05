@@ -1,12 +1,14 @@
 
 <template>
-    <div class="all">
-        <p><b>Create Recipe</b></p>
+    <button @click="this.toggleContent()">Create Recipe</button>
+    <div class="all" id="all">
         <input placeholder="Recipe Name" type="text" name="name" id="name" v-model="this.name">
-        <input placeholder="Ingredients" type="text" name="text" id="text" v-model="this.text">
-        <Recipe :name="`${name}`" :text="`${text}`"></Recipe>
+        <input placeholder="Ingredients" type="text" name="ingredients" id="ingredients" v-model="this.ingredients">
+        <input placeholder="Process" type="text" name="process" id="process" v-model="this.process">
 
-        <button @click="this.loaddata()">Create</button>
+        <Recipe :name="`${name}`" :ingredients="`${ingredients}`" :process="`${process}`"></Recipe>
+
+        <button @click="this.senddata()">Create</button>
     </div>
 </template>
   
@@ -20,15 +22,22 @@
     data() {
       return {
         name: "",
-        text: ""
+        ingredients: "",
+        process: ""
       };
     },
     methods: {
-        loaddata() {
+        toggleContent() {
+            var element = document.getElementById("all");
+            element.style.display = (element.style.display === "none") ? "block" : "none";
+        },
+        senddata() {
         console.log('fetching...');
         const datensatz = {
             name: this.name,
-            text: this.text
+            ingredients: this.ingredients,
+            process: this.process
+
         };
         fetch('http://localhost:8080/app/adddata', {
             method: 'POST',
@@ -62,13 +71,16 @@
     padding-top: 0;
     border: 1px solid black;
     border-radius: 4px;
+    display: grid;
 }
 input {
     border: none;
     background-color: antiquewhite;
     border: 1px solid black;
-    margin: 4px;
+    margin: 2px;
+    padding: 2px;
     border-radius: 2px;
+    width:200px;
 }
 button {
     background-color: rgb(186, 72, 30);
@@ -78,6 +90,8 @@ button {
     padding: 2px;
     margin: 2px;
     cursor: pointer;
+    width: max-content;
+    text-align: center;
 }
 button:hover {
     background-color: rgb(103, 38, 14);
