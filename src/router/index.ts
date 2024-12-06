@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Start from '../views/Start.vue'
 import Home from '../views/Home.vue'
 import Cooking from '../views/Cooking.vue'
-import Backing from '../views/Backing.vue'
+import Baking from '../views/Baking.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -26,9 +26,9 @@ const routes: Array<RouteRecordRaw> = [
     component: Cooking
   },
   {
-    path: '/backing',
-    name: 'backing',
-    component: Backing
+    path: '/baking',
+    name: 'baking',
+    component: Baking
   }
 ]
 
