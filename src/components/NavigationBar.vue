@@ -1,12 +1,12 @@
 <template>
-    <header class="navigator">
+    <header class="navigator" >
         
-        <div>
+        <div v-if="showField==true">
             <ul class="nav_ul" id="nav_ul">
                 <li><router-link to="/home"class="nav_list">Home</router-link></li>
                 <li><router-link to="/start"class="nav_list">Start</router-link></li>
                 <li><router-link to="/cooking"class="nav_list">Cooking</router-link></li>
-                <li><router-link to="/backing"class="nav_list">Backing</router-link></li>
+                <li><router-link to="/baking"class="nav_list">Backing</router-link></li>
             </ul>
         </div>
         <div class="rollout">
@@ -19,10 +19,12 @@
 export default {
     name: 'NavigationBar',
     methods: {
-        toggleContent() {
-            var element = document.getElementById("nav_ul");
-            element.style.display = (element.style.display === "none") ? "block" : "none";
-        }
+        toggleContent() {this.showField = !this.showField}
+    },
+    data() {
+      return {
+        showField: false
+      }
     }
 }
 </script>

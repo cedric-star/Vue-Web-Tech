@@ -1,6 +1,6 @@
 <template>
     <button @click="this.toggleContent()">Create Recipe</button>
-    <div class="all" id="all">
+    <div class="all" id="all" v-if="showField==true">
         <input placeholder="Recipe Name" type="text" name="name" id="name" v-model="this.name">
         <input placeholder="Ingredients" type="text" name="ingredients" id="ingredients" v-model="this.ingredients">
         <input placeholder="Process" type="text" name="process" id="process" v-model="this.process">
@@ -30,14 +30,12 @@
         name: "",
         ingredients: "",
         process: "",
-        message: "..."
+        message: "...",
+        showField: false
       };
     },
     methods: {
-        toggleContent() {
-            var element = document.getElementById("all");
-            element.style.display = (element.style.display === "none") ? "block" : "none";
-        },
+        toggleContent() {this.showField = !this.showField;},
         senddata() {
           console.log('fetching...');
           const data = {
@@ -50,7 +48,7 @@
           fetch('http://localhost:8080/app/adddata', {
               method: 'POST',
               headers: {
-                  'Conten-Type': 'application/json'
+                  'Content-Type': 'application/json'
               },
           body: JSON.stringify(data)
           })
