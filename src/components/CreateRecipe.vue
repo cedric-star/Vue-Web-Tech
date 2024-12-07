@@ -30,9 +30,6 @@
         name: "",
         ingredients: "",
         process: "",
-        isNameOk: this.checkName,
-        isIngredientsOk: this.checkIngredients,
-        isProcessOk: this.checkProcess,
         message: "...",
         showField: false,
 
@@ -44,27 +41,34 @@
         return regex.test(this.name);
       },
       checkIngredients() {
-        const regex =  /^[a-zA-Z0-9]*$/;
+        const regex =  /^[\s\S]{0,800}$/;
         return regex.test(this.ingredients);
       },
       checkProcess() {
-        const regex =  /^[a-zA-Z0-9]*$/;
+        const regex =  /^[\s\S]{0,800}$/;
         return regex.test(this.process);
       }
     },
     methods: {
         toggleContent() {this.showField = !this.showField;},
-        senddata() {
-          this.isNameOk = this.checkName;
-          this.isProcessOk = this.checkProcess;
-          this. isIngredientsOk = this.checkIngredients;
-          if (!this.isNameOk || !this.isIngredientsOk || !this.isProcessOk) {
+        checkAttributes() {
+          if (!this.checkName || !this.checkIngredients || !this.checkProcess) {
             this.message = 'can´t send data:\n';
-            if (!this.isNameOk) this.message+='change Name field\n';
-            if (!this.isIngredientsOk) this.message+=' change Ingredients field\n';
-            if (!this.isProcessOk) this.message+=' change Process field\n';
-            return;
+            if (!this.checkName) this.message+='change Name field\n';
+            if (!this.checkIngredients) this.message+=' change Ingredients field\n';
+            if (!this.checkProcess) this.message+=' change Process field\n';
+            return false;
           }
+          return true;
+        },
+        resetField() {
+          this.name = "";
+          this.ingredients = "";
+          this.process = "";
+          this.showField = true;
+        },
+        senddata() {
+           if (!this.checkAttributes()) return;
           console.log('fetching...');
           const data = {
               type: this.type,
@@ -89,6 +93,10 @@
               .then(message => {
                 this.message = message;
                 console.log('response message: ', this.message);
+                return message;
+              })
+              .then(message => {
+                if (message === 'successfully saved recipe!') this.resetField();
               });
         }
     }

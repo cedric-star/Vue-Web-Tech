@@ -6,7 +6,7 @@
                 <li><router-link to="/home"class="nav_list">Home</router-link></li>
                 <li><router-link to="/start"class="nav_list">Start</router-link></li>
                 <li><router-link to="/cooking"class="nav_list">Cooking</router-link></li>
-                <li><router-link to="/baking"class="nav_list">Backing</router-link></li>
+                <li><router-link to="/baking"class="nav_list">Baking</router-link></li>
             </ul>
         </div>
         <div class="rollout">

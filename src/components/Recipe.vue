@@ -1,10 +1,13 @@
 <template>
-  <h4 v-if="name.length>0">Name: {{ name }}</h4>
-  <h4 v-else>Recipe unnamed</h4>
-  <ul class="attributes">
+  <div class="recipe">
+    <h4 v-if="name.length>0">Name: {{ name }}</h4>
+    <h4 v-else>Recipe unnamed</h4>
+    <ul class="attributes">
       <li v-if="ingredients.length>0"><p>Ingredients: {{ ingredients }}</p></li>
       <li v-if="process.length>0"><p>Process: {{ process }}</p></li>
     </ul>
+  </div>
+
 </template>
   
   <script>
@@ -31,6 +34,12 @@
   </script>
 
 <style scoped>
+.recipe {
+  padding: 4px;
+  margin: 4px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
 h4 {
   padding: 0;
   margin: 0;

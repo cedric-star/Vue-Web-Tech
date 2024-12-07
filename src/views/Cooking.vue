@@ -1,7 +1,7 @@
 <template>
     <NavigationBar/>
     <CreateRecipe type="cooking"/>
-    <ShowAllRecipies/>
+    <ShowAllRecipies type="cooking"/>
     <Footer/>
     
 </template>
