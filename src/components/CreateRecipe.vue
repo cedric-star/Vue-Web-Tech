@@ -30,13 +30,41 @@
         name: "",
         ingredients: "",
         process: "",
+        isNameOk: this.checkName,
+        isIngredientsOk: this.checkIngredients,
+        isProcessOk: this.checkProcess,
         message: "...",
-        showField: false
+        showField: false,
+
       };
+    },
+    computed: {
+      checkName() {
+        const regex =  /^[a-zA-Z]*$/;
+        return regex.test(this.name);
+      },
+      checkIngredients() {
+        const regex =  /^[a-zA-Z0-9]*$/;
+        return regex.test(this.ingredients);
+      },
+      checkProcess() {
+        const regex =  /^[a-zA-Z0-9]*$/;
+        return regex.test(this.process);
+      }
     },
     methods: {
         toggleContent() {this.showField = !this.showField;},
         senddata() {
+          this.isNameOk = this.checkName;
+          this.isProcessOk = this.checkProcess;
+          this. isIngredientsOk = this.checkIngredients;
+          if (!this.isNameOk || !this.isIngredientsOk || !this.isProcessOk) {
+            this.message = 'can´t send data:\n';
+            if (!this.isNameOk) this.message+='change Name field\n';
+            if (!this.isIngredientsOk) this.message+=' change Ingredients field\n';
+            if (!this.isProcessOk) this.message+=' change Process field\n';
+            return;
+          }
           console.log('fetching...');
           const data = {
               type: this.type,
