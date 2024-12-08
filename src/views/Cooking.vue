@@ -1,23 +1,13 @@
 <template>
-    <NavigationBar/>
-    <CreateRecipe type="cooking"/>
-    <ShowAllRecipies type="cooking"/>
-    <Footer/>
-    
+  <OneType type="cooking"/>
 </template>
-  
-  <script>
-    import CreateRecipe from '../components/CreateRecipe.vue';
-    import NavigationBar from '../components/NavigationBar.vue';
-    import ShowAllRecipies from "../components/ShowAllRecipies.vue";
-    import Footer from '../components/Footer.vue';
+
+<script>
+import OneType from "../components/OneType.vue";
 
 export default {
-    components: {
-        NavigationBar,
-        CreateRecipe,
-        ShowAllRecipies,
-        Footer
-    },
-    }
-  </script>
+  components: {
+    OneType,
+  },
+}
+</script>

@@ -5,6 +5,7 @@
     <ul class="attributes">
       <li v-if="ingredients.length>0"><p>Ingredients: {{ ingredients }}</p></li>
       <li v-if="process.length>0"><p>Process: {{ process }}</p></li>
+      <li v-if="additives.length>0"><p>Additives: {{ additives }}</p></li>
     </ul>
   </div>
 
@@ -26,6 +27,10 @@
         required: true
       },
       process: {
+        type: String,
+        required: true
+      },
+      additives: {
         type: String,
         required: true
       }

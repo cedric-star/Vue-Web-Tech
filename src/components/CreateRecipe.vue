@@ -4,8 +4,13 @@
         <input placeholder="Recipe Name" type="text" name="name" id="name" v-model="this.name">
         <input placeholder="Ingredients" type="text" name="ingredients" id="ingredients" v-model="this.ingredients">
         <input placeholder="Process" type="text" name="process" id="process" v-model="this.process">
+        <input placeholder="Additives" type="text" name="additives" id="additives" v-model="this.additives">
         <p id="responseText">{{ message }}</p>
-        <Recipe :type="`${type}`" :name="`${name}`" :ingredients="`${ingredients}`" :process="`${process}`"></Recipe>
+        <Recipe :type="`${type}`"
+                :name="`${name}`"
+                :ingredients="`${ingredients}`"
+                :process="`${process}`"
+                :additives="`${additives}`"></Recipe>
 
         <button @click="this.senddata()">Create</button>
 
@@ -30,6 +35,7 @@
         name: "",
         ingredients: "",
         process: "",
+        additives: "",
         message: "...",
         showField: false,
 
@@ -47,16 +53,21 @@
       checkProcess() {
         const regex =  /^[\s\S]{0,800}$/;
         return regex.test(this.process);
+      },
+      checkAdditives() {
+        const regex =  /^[\s\S]{0,800}$/;
+        return regex.test(this.process);
       }
     },
     methods: {
         toggleContent() {this.showField = !this.showField;},
         checkAttributes() {
-          if (!this.checkName || !this.checkIngredients || !this.checkProcess) {
+          if (!this.checkName || !this.checkIngredients || !this.checkProcess || !this.checkAdditives) {
             this.message = 'can´t send data:\n';
             if (!this.checkName) this.message+='change Name field\n';
             if (!this.checkIngredients) this.message+=' change Ingredients field\n';
             if (!this.checkProcess) this.message+=' change Process field\n';
+            if (!this.checkAdditives) this.message+=' change Additives field\n';
             return false;
           }
           return true;
@@ -65,6 +76,7 @@
           this.name = "";
           this.ingredients = "";
           this.process = "";
+          this.additives = "";
           this.showField = true;
         },
         senddata() {
@@ -74,7 +86,8 @@
               type: this.type,
               name: this.name,
               ingredients: this.ingredients,
-              process: this.process
+              process: this.process,
+              additives: this.additives
 
           };
           fetch('http://localhost:8080/app/adddata', {
