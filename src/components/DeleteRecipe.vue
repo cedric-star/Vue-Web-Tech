@@ -51,16 +51,13 @@ export default {
     deletedata() {
       if (!this.checkAttributes()) return;
       console.log('fetching...');
-      const data = {
-        type: this.type,
-        name: this.name,
-      };
+
       fetch('http://localhost:8080/app/deletedata', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: this.name
       })
           .then(response => {
             if (!response.ok) {
