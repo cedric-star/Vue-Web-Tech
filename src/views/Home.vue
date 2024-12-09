@@ -1,6 +1,6 @@
 <template>
     <NavigationBar/>
-    home
+    <header>Home-Page</header>
     <Footer/>
 </template>
 <script>

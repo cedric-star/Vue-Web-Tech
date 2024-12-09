@@ -1,9 +1,10 @@
 <template>
     <button @click="this.toggleContent()">Create Recipe</button>
     <div class="all" id="all" v-if="showField==true">
+        <h3>Create you´r Recipe</h3>
         <input placeholder="Recipe Name" type="text" name="name" id="name" v-model="this.name">
-        <input placeholder="Ingredients" type="text" name="ingredients" id="ingredients" v-model="this.ingredients">
-        <input placeholder="Process" type="text" name="process" id="process" v-model="this.process">
+      <textarea placeholder="Ingredients" name="ingredients" id="ingredients" v-model="this.ingredients"></textarea>
+        <textarea placeholder="Process" type="text" name="process" id="process" v-model="this.process"></textarea>
         <input placeholder="Additives" type="text" name="additives" id="additives" v-model="this.additives">
         <p id="responseText">{{ message }}</p>
         <Recipe :type="`${type}`"
@@ -80,6 +81,7 @@
           this.showField = true;
         },
         senddata() {
+          console.log(this.ingredients);
            if (!this.checkAttributes()) return;
           console.log('fetching...');
           const data = {
@@ -133,7 +135,7 @@
     border-radius: 4px;
     display: grid;
 }
-input {
+input, textarea {
     border: none;
     background-color: antiquewhite;
     border: 1px solid black;
@@ -141,6 +143,8 @@ input {
     padding: 2px;
     border-radius: 2px;
     width:200px;
+    max-width: 400px;
+    min-width: 50px;
 }
 button {
     background-color: rgb(186, 72, 30);
