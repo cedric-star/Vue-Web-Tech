@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     loadDataFromServer() {
-      fetch('http://localhost:8080/app/getdata', {
+      fetch('http://localhost:8090/app/getdata', {
         method: 'POST',
 
         body: this.type,

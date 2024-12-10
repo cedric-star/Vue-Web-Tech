@@ -3,6 +3,9 @@
   <div class="all" id="all" v-if="showField==true">
     <h3>Delete existing Recipe</h3>
     <input placeholder="Recipe Name" type="text" name="name" id="name" v-model="this.name">
+    <select placeholder="Recipe Type" type="" name="type" id="type" v-model="this.type">
+      <option v-for="type in this.types">{{ type }}</option>
+    </select>
     <p id="responseText">{{ message }}</p>
 
 
@@ -23,8 +26,10 @@ export default {
   data() {
     return {
       name: "",
+      type: "",
       message: "...",
       showField: false,
+      types: ["cooking", "baking"]
 
     };
   },
@@ -52,12 +57,12 @@ export default {
       if (!this.checkAttributes()) return;
       console.log('fetching...');
 
-      fetch('http://localhost:8080/app/deletedata', {
+      fetch('http://localhost:8090/app/deletedata', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: this.name
+        body: this.name+';'+this.type
       })
           .then(response => {
             if (!response.ok) {
@@ -95,8 +100,7 @@ export default {
   border-radius: 4px;
   display: grid;
 }
-input {
-  border: none;
+input, select {
   background-color: antiquewhite;
   border: 1px solid black;
   margin: 2px;

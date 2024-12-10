@@ -92,7 +92,7 @@
               additives: this.additives
 
           };
-          fetch('http://localhost:8080/app/adddata', {
+          fetch('http://localhost:8090/app/adddata', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'
