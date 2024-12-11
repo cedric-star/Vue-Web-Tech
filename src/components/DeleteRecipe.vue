@@ -1,9 +1,9 @@
 <template>
   <button @click="this.toggleContent()">Delete Recipe</button>
-  <div class="all" id="all" v-if="showField==true">
+  <div class="all" id="all" v-if="showField===true">
     <h3>Delete existing Recipe</h3>
     <input placeholder="Recipe Name" type="text" name="name" id="name" v-model="this.name">
-    <select placeholder="Recipe Type" type="" name="type" id="type" v-model="this.type">
+    <select name="type" id="type" v-model="this.type">
       <option v-for="type in this.types">{{ type }}</option>
     </select>
     <p id="responseText">{{ message }}</p>
@@ -18,10 +18,6 @@
 
 export default {
   props: {
-    type: {
-      type: String,
-      required: true
-    }
   },
   data() {
     return {
