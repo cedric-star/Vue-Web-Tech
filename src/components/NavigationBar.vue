@@ -39,6 +39,10 @@ export default {
 .nav_list:hover {
     text-decoration: underline;
 }
+ul {
+  text-align: left;
+  list-style-type: none;
+}
 body, html {
     margin: 0;
     padding: 0;

@@ -10,6 +10,10 @@ export default {
     components: {
         NavigationBar,
         Footer
+    },
+    mounted: function() {
+      let nameTitle = this.$route.params.name
+      console.log(nameTitle);
     }
 }
 </script>
