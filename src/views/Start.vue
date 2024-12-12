@@ -1,17 +1,22 @@
 <template>
   <div class="container">
-    <NavigationBar />
-    <header><b>Start</b></header>
+
+    <header><b>Welcome to the one and only Aroma Atlas</b></header>
     <img
         src="../assets/logo.png"
         alt="logo_picture"
-        :class="{'scroll-animation': isScrolled}"
         ref="logo"
     />
     <div>
       <DisplayText :text="text" :title="title" />
+      <p><b>Visit also:</b></p>
+      <ul class="routerLinks">
+        <li><RouterLink to="/home" class="routerLinkCl">Home Page</RouterLink></li>
+        <li><RouterLink to="/cooking" class="routerLinkCl">Cooking Recipes</RouterLink></li>
+        <li><RouterLink to="baking" class="routerLinkCl">Baking Recipes</RouterLink></li>
+      </ul>
+
     </div>
-    <Footer />
   </div>
 </template>
 
@@ -69,32 +74,41 @@ export default {
 </script>
 
 <style scoped>
+.routerLinks {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+
+}
 .container {
   text-align: center;
+  padding-top: 50px;
+}
+li {
+  padding: 10px;
+
+}
+header {
+  font-size: large;
+}
+.routerLinkCl {
+  color: black;
+  text-decoration: none;
+}
+.routerLinkCl:hover {
+  text-decoration: underline;
 }
 
 img {
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  scale: 1.3;
+  animation-name: getBigger;
+  animation-duration: 3s;
 }
 
-.load-animation {
-  animation: zoomIn 1s;
+@keyframes getBigger {
+  0% {scale: 1;}
+  100% {scale: 1.3;}
 }
 
-.scroll-animation {
-  transform: scale(0.9);
-  opacity: 0.8;
-}
-
-@keyframes zoomIn {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
 
 </style>

@@ -18,6 +18,12 @@ const routes = [
     meta: {title:'AromaAtlas - Home'}
   },
   {
+    path: '/**',
+    name: 'home3',
+    component: Home,
+    meta: {title:'AromaAtlas - Home'}
+  },
+  {
     path: '/start',
     name: 'start',
     component: Start,

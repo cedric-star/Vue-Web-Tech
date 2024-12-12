@@ -28,11 +28,11 @@ body, html {
     background-color: antiquewhite;
     text-align: center;
 
-
     border-radius: 2px;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);    
+    grid-template-columns: repeat(3, 1fr);
+
 
 }
 </style>

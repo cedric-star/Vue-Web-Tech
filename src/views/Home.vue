@@ -1,7 +1,5 @@
 <template>
-    <NavigationBar/>
     <header>Home-Page</header>
-    <Footer/>
 </template>
 <script>
 import NavigationBar from '../components/NavigationBar.vue';

@@ -47,6 +47,7 @@ body, html {
     margin: 0;
     padding: 0;
 
+    top: 0;
 }
 .navigator {
     padding: 0;
