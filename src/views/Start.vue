@@ -34,8 +34,11 @@ export default {
   },
   data() {
     return {
-      title: "Start Text",
-      text: "hallo ich bin ein text",
+      title: "Where am I???",
+      text: 'You just found the one and only<br>'+
+      'website for finding, adding and also deleting<br>'+
+      'the super unique and delitious recipes<br>'+
+      'for your next cooking or baking experience!',
       isScrolled: false
     }
   },

@@ -111,7 +111,7 @@
                 return message;
               })
               .then(message => {
-                if (message === 'successfully saved recipe!') this.resetField();
+                if (message === 'successfully added recipe') this.resetField();
               });
         }
     }

@@ -72,7 +72,7 @@ export default {
             return message;
           })
           .then(message => {
-            if (message === 'successfully deleted recipe!') this.resetField();
+            if (message === 'successfully deleted recipe') this.resetField();
           });
     }
   }
