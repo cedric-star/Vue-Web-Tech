@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import Recipe from "../components/Recipe.vue";
-import { onMounted } from 'vue';
+import Recipe from "@/components/Recipe.vue";
+import {BackendConnector} from "@/java-script/BackendConnector";
 export default {
   props: {
     type: {
@@ -32,26 +32,11 @@ export default {
     }
   },
   methods: {
-    loadDataFromServer() {
-      fetch('http://localhost:8090/app/getdata', {
-        method: 'POST',
-
-        body: this.type,
-      })
-          .then(response => response.text())
-          .then(data => {
-            if (data === "wrong recipe type") {
-              console.log('bad response from backend: ' + data);
-            } else {
-              this.output = JSON.parse(data);
-              console.log('output: ', this.output);
-              this.loadedData = true;
-            }
-          })
-          .catch(error => {
-            this.loadedData = false;
-            console.error('Fehler beim Laden der Daten: ', error);
-          });
+    async loadDataFromServer() {
+      let bc = new BackendConnector();
+      const recipes = await bc.getRecipes(this.type);
+      this.loadedData = true;
+      this.output = await JSON.parse(recipes);
     }
   },
   mounted() {

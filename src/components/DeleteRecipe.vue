@@ -9,12 +9,14 @@
     <p id="responseText">{{ message }}</p>
 
 
-    <button @click="this.deletedata()">Delete</button>
+    <button @click="this.deleteData()">Delete</button>
 
   </div>
 </template>
 
 <script>
+
+import {BackendConnector} from "@/java-script/BackendConnector";
 
 export default {
   props: {
@@ -49,36 +51,18 @@ export default {
       }
       return true;
     },
-    resetField() {
+    resetFields() {
       this.name = "";
       this.showField = true;
     },
-    deletedata() {
+    async deleteData() {
       if (!this.checkAttributes()) return;
-      console.log('fetching...');
+      let bc = new BackendConnector();
+      const msg = await bc.deleteRecipe(this.name, this.typeChoosen);
+      if (msg === 'successfully deleted recipe') this.resetFields();
+      this.message = msg;
 
-      fetch('http://localhost:8090/app/deletedata', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: this.name+';'+this.typeChoosen
-      })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('response not ok');
-            }
-            return response.text();
-          })
-          .then(message => {
-            this.message = message;
-            console.log('response message: ', this.message);
-            return message;
-          })
-          .then(message => {
-            if (message === 'successfully deleted recipe') this.resetField();
-          });
-    }
+    },
   }
 }
 </script>

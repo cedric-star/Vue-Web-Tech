@@ -17,13 +17,14 @@
                 :process="`${process}`"
                 :additives="`${additives}`"></Recipe>
 
-        <button @click="this.senddata()">Create</button>
+        <button @click="this.sendData()">Create</button>
 
     </div>
 </template>
   
 <script>
   import Recipe from '../components/Recipe.vue';
+  import {BackendConnector} from "../java-script/BackendConnector";
 
   export default {
     props: {
@@ -87,40 +88,21 @@
           this.additives = "";
           this.showField = true;
         },
-        senddata() {
-          console.log(this.ingredients);
-           if (!this.checkAttributes()) return;
-          console.log('fetching...');
+        async sendData() {
+          if (!this.checkAttributes()) return;
+          let bc = new BackendConnector();
           const data = {
-              type: this.typeChoosen,
-              name: this.name,
-              ingredients: this.ingredients,
-              process: this.process,
-              additives: this.additives
+            type: this.typeChoosen,
+            name: this.name,
+            ingredients: this.ingredients,
+            process: this.process,
+            additives: this.additives};
 
-          };
-          fetch('http://localhost:8090/app/adddata', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-          body: JSON.stringify(data)
-          })
-              .then(response => {
-                if (!response.ok) {
-                  throw new Error('response not ok');
-                }
-                return response.text();
-              })
-              .then(message => {
-                this.message = message;
-                console.log('response message: ', this.message);
-                return message;
-              })
-              .then(message => {
-                if (message === 'successfully added recipe') this.resetFields();
-              });
-        }
+          const msg = await bc.sendRecipe(data)
+          if (msg === 'successfully added recipe') this.resetFields();
+          this.message = msg;
+
+        },
     }
   }
 </script>
