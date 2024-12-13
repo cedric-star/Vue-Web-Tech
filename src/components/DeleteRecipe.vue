@@ -1,9 +1,9 @@
 <template>
   <button @click="this.toggleContent()">Delete Recipe</button>
   <div class="all" id="all" v-if="showField===true">
-    <h3>Delete existing Recipe</h3>
+    <h3>Delete existing {{typeChoosen}} Recipe</h3>
     <input placeholder="Recipe Name" type="text" name="name" id="name" v-model="this.name">
-    <select name="type" id="type" v-model="this.type">
+    <select name="type" id="type" v-model="this.typeChoosen">
       <option v-for="type in this.types">{{ type }}</option>
     </select>
     <p id="responseText">{{ message }}</p>
@@ -18,11 +18,15 @@
 
 export default {
   props: {
+    type: {
+      type: String,
+      required: true
+    }
   },
   data() {
     return {
       name: "",
-      type: "",
+      typeChoosen: this.type,
       message: "...",
       showField: false,
       types: ["cooking", "baking"]
@@ -58,7 +62,7 @@ export default {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: this.name+';'+this.type
+        body: this.name+';'+this.typeChoosen
       })
           .then(response => {
             if (!response.ok) {

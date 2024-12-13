@@ -1,13 +1,17 @@
 <template>
     <button @click="this.toggleContent()">Create Recipe</button>
     <div class="all" id="all" v-if="showField==true">
-        <h3>Create you´r Recipe</h3>
+        <h3>Create you´r {{typeChoosen}} Recipe</h3>
+
         <input placeholder="Recipe Name" type="text" name="name" id="name" v-model="this.name">
+      <select name="type" id="type" v-model="this.typeChoosen">
+        <option v-for="type in this.types">{{ type }}</option>
+      </select>
       <textarea placeholder="Ingredients" name="ingredients" id="ingredients" v-model="this.ingredients"></textarea>
         <textarea placeholder="Process" type="text" name="process" id="process" v-model="this.process"></textarea>
         <input placeholder="Additives" type="text" name="additives" id="additives" v-model="this.additives">
         <p id="responseText">{{ message }}</p>
-        <Recipe :type="`${type}`"
+        <Recipe :type="`${typeChoosen}`"
                 :name="`${name}`"
                 :ingredients="`${ingredients}`"
                 :process="`${process}`"
@@ -33,12 +37,15 @@
     },
     data() {
       return {
+        typeChoosen: this.type,
         name: "",
         ingredients: "",
         process: "",
         additives: "",
         message: "...",
         showField: false,
+        types: ["cooking", "baking"]
+
 
       };
     },
@@ -73,7 +80,7 @@
           }
           return true;
         },
-        resetField() {
+        resetFields() {
           this.name = "";
           this.ingredients = "";
           this.process = "";
@@ -85,7 +92,7 @@
            if (!this.checkAttributes()) return;
           console.log('fetching...');
           const data = {
-              type: this.type,
+              type: this.typeChoosen,
               name: this.name,
               ingredients: this.ingredients,
               process: this.process,
@@ -111,7 +118,7 @@
                 return message;
               })
               .then(message => {
-                if (message === 'successfully added recipe') this.resetField();
+                if (message === 'successfully added recipe') this.resetFields();
               });
         }
     }
@@ -135,7 +142,7 @@
     border-radius: 4px;
     display: grid;
 }
-input, textarea {
+input, textarea, select {
     border: none;
     background-color: antiquewhite;
     border: 1px solid black;

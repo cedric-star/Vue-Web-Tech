@@ -1,6 +1,6 @@
 <template>
   <CreateRecipe :type="type"/>
-  <DeleteRecipe/>
+  <DeleteRecipe :type="type"/>
   <ShowAllRecipes :type="type"/>
 
 </template>
