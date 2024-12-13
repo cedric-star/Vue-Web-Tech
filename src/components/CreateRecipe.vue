@@ -25,6 +25,7 @@
 <script>
   import Recipe from '../components/Recipe.vue';
   import {BackendConnector} from "../java-script/BackendConnector";
+  import {CheckInput} from "@/java-script/CheckInput";
 
   export default {
     props: {
@@ -89,6 +90,12 @@
           this.showField = true;
         },
         async sendData() {
+          /*let checker = new CheckInput();
+          const attributes = [{name: this.name},
+            {ingredients: this.ingredients},
+            {process: this.process},
+            {additives: this.additives}];
+          if (!(checker.checkAllAttributes(attributes)==="")) return;*/
           if (!this.checkAttributes()) return;
           let bc = new BackendConnector();
           const data = {
