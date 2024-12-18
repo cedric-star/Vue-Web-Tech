@@ -8,10 +8,9 @@
       <li v-if="additives.length>0"><p>Additives: {{ additives }}</p></li>
     </ul>
   </div>
-
 </template>
   
-  <script>
+<script>
   export default {
     props: {
       type: {
@@ -36,7 +35,7 @@
       }
     }
   }
-  </script>
+</script>
 
 <style scoped>
 .recipe {

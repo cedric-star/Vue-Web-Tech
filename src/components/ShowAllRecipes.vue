@@ -15,6 +15,7 @@
 <script>
 import Recipe from "@/components/Recipe.vue";
 import {BackendConnector} from "@/java-script/BackendConnector";
+
 export default {
   props: {
     type: {
@@ -42,7 +43,6 @@ export default {
   mounted() {
     this.loadDataFromServer();
   }
-
 }
 </script>
 

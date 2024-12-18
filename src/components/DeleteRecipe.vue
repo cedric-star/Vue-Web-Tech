@@ -8,16 +8,15 @@
     </select>
     <p id="responseText">{{ message }}</p>
 
-
     <button @click="this.deleteData()">Delete</button>
-
   </div>
 </template>
 
 <script>
-
 import {BackendConnector} from "@/java-script/BackendConnector";
+import {CheckInput} from "@/java-script/CheckInput";
 
+let checker = new CheckInput();
 export default {
   props: {
     type: {
@@ -37,8 +36,7 @@ export default {
   },
   computed: {
     checkName() {
-      const regex =  /^[a-zA-Z]*$/;
-      return regex.test(this.name);
+      return checker.checkName(this.name);
     }
   },
   methods: {

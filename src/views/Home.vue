@@ -15,41 +15,44 @@ import NavigationBar from '../components/NavigationBar.vue';
 import Footer from '../components/Footer.vue';
 import DisplayText from "@/components/DisplayText.vue";
 import Recommendation from "@/components/Recommendation.vue";
+
 export default {
-    components: {
-      Recommendation,
-      DisplayText,
-      NavigationBar,
-      Footer
-    },
-    mounted: function() {
-      let nameTitle = this.$route.params.name
-      console.log(nameTitle);
-    },
-    data() {
-      return {
-        picturePaths: [{fileName:"chickencurry.jpg",
-        text:'Wow the Chicken Curry is so amazing!'},
-          {fileName:"tomatensauce.jpg",
-          text:'Thanks for the wonderful recipe it´s soo delicious.'},
-          {fileName:"schokomuffin.jpg",
-          text: 'That chocolate muffin is buzzin!!!'}],
-        explanationText: 'How do I even use this website?<br>'+
-            'By pressing the Navigation Button in the <br>'+
-            'top left corner of every Page you can decide<br>'+
-            'which Page you want to visit.<br>'+
-            'You are currently reading the Home Page.<br>'+
-            'Visiting th Start Page will welcome you.<br>'+
-            'Visiting the Cooking Page will offer you <br>'+
-            'a variety of cooking Recipes.<br>'+
-            'Same for the baking Recipes.<br>'+
-            'Both the baking and cooking Page will allow you<br>'+
-            'to add your own recipe, delete any recipe or just<br>'+
-            'reload after editing.',
-      }
+  components: {
+    Recommendation,
+    DisplayText,
+    NavigationBar,
+    Footer
+  },
+  mounted: function() {
+    let nameTitle = this.$route.params.name
+    console.log(nameTitle);
+  },
+  data() {
+    return {
+      picturePaths: [
+        {fileName:"chickencurry.jpg", text:'Wow the Chicken Curry is so amazing!'},
+        {fileName:"tomatensauce.jpg",
+        text:'Thanks for the wonderful recipe it´s soo delicious.'},
+        {fileName:"schokomuffin.jpg",
+        text: 'That chocolate muffin is buzzin!!!'}
+      ],
+      explanationText: 'How do I even use this website?<br>'+
+          'By pressing the Navigation Button in the <br>'+
+          'top left corner of every Page you can decide<br>'+
+          'which Page you want to visit.<br>'+
+          'You are currently reading the Home Page.<br>'+
+          'Visiting th Start Page will welcome you.<br>'+
+          'Visiting the Cooking Page will offer you <br>'+
+          'a variety of cooking Recipes.<br>'+
+          'Same for the baking Recipes.<br>'+
+          'Both the baking and cooking Page will allow you<br>'+
+          'to add your own recipe, delete any recipe or just<br>'+
+          'reload after editing.',
     }
+  }
 }
 </script>
+
 <style scoped>
 #addSmallP {
   bottom: 0;
@@ -60,16 +63,12 @@ export default {
     padding: 0;
     background-color: coral;
     text-align: center;
-
 }
 .head {
   padding: 6px;
 }
-
 #pictures {
   display: flex;
 }
-
-
 </style>
 

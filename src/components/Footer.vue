@@ -1,23 +1,24 @@
 <template>
-    <footer class="foot_items">
-            <p><b>Impressum</b></p>
-            <p>©Cedric Wünsch</p>
-            <p><a href="https://github.com/cedric-star/Vue-Web-Tech">Documentation</a></p>
-    </footer>
+  <footer class="foot_items">
+    <p><RouterLink to="/imprint">Imprint</RouterLink></p>
+    <p>©Cedric Wünsch</p>
+    <p><a href="https://github.com/cedric-star/Vue-Web-Tech">Documentation</a></p>
+  </footer>
 </template>
 <script>
 export default {
-    name: "Footer"
-
+  name: "Footer"
 }
 </script>
 
-<style>
+<style scoped>
 
 body, html {
     margin: 0;
     padding: 0;
-
+}
+RouterLink, a{
+  color: black;
 }
 
 .foot_items {
@@ -27,12 +28,8 @@ body, html {
     right: 0;
     background-color: antiquewhite;
     text-align: center;
-
     border-radius: 2px;
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-
-
 }
 </style>

@@ -2,7 +2,6 @@
   <CreateRecipe :type="type"/>
   <DeleteRecipe :type="type"/>
   <ShowAllRecipes :type="type"/>
-
 </template>
 
 <script>

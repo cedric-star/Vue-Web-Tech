@@ -3,6 +3,7 @@ import Start from '../views/Start.vue'
 import Home from '../views/Home.vue'
 import Cooking from '../views/Cooking.vue'
 import Baking from '../views/Baking.vue'
+import Imprint from "@/views/Imprint.vue";
 
 const routes = [
   {
@@ -40,6 +41,12 @@ const routes = [
     name: 'baking',
     component: Baking,
     meta: {title:'AromaAtlas - Baking Recipes'}
+  },
+  {
+    path: '/imprint',
+    name: 'imprint',
+    component: Imprint,
+    meta: {title:'AromaAtlas - Imprint'}
   }
 ]
 
