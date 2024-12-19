@@ -5,6 +5,7 @@
     <p><a href="https://github.com/cedric-star/Vue-Web-Tech">Documentation</a></p>
   </footer>
 </template>
+
 <script>
 export default {
   name: "Footer"
@@ -12,7 +13,6 @@ export default {
 </script>
 
 <style scoped>
-
 body, html {
     margin: 0;
     padding: 0;
@@ -20,7 +20,6 @@ body, html {
 RouterLink, a{
   color: black;
 }
-
 .foot_items {
     position: fixed;
     bottom: 0;

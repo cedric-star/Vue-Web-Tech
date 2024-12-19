@@ -10,6 +10,7 @@
   <p id="addSmallP">all pictures are stock pictures, the recommendations are freely made up</p>
 
 </template>
+
 <script>
 import NavigationBar from '../components/NavigationBar.vue';
 import Footer from '../components/Footer.vue';
