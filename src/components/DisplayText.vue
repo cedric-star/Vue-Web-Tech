@@ -14,6 +14,7 @@ export default {
 }
 </script>
 
+
 <template>
   <p><b>{{ title }}</b></p>
   <p v-html="text"></p>
