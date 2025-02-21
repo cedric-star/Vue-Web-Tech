@@ -24,9 +24,7 @@ import DisplayText from "@/components/DisplayText.vue";
 
 export default {
   components: {
-    DisplayText,
-    NavigationBar,
-    Footer
+    DisplayText
   },
   data() {
     return {

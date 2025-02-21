@@ -20,9 +20,7 @@ import Recommendation from "@/components/Recommendation.vue";
 export default {
   components: {
     Recommendation,
-    DisplayText,
-    NavigationBar,
-    Footer
+    DisplayText
   },
   mounted: function() {
     let nameTitle = this.$route.params.name
