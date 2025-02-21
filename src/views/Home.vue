@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import NavigationBar from '../components/NavigationBar.vue';
-import Footer from '../components/Footer.vue';
 import DisplayText from "@/components/DisplayText.vue";
 import Recommendation from "@/components/Recommendation.vue";
 

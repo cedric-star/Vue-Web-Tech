@@ -18,8 +18,6 @@
 </template>
 
 <script>
-import NavigationBar from '@/components/NavigationBar.vue';
-import Footer from '@/components/Footer.vue';
 import DisplayText from "@/components/DisplayText.vue";
 
 export default {
