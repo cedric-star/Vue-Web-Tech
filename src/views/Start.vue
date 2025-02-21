@@ -18,6 +18,7 @@
 </template>
 
 <script>
+
 import DisplayText from "@/components/DisplayText.vue";
 
 export default {

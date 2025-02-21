@@ -12,6 +12,7 @@
 </template>
 
 <script>
+
 import DisplayText from "@/components/DisplayText.vue";
 import Recommendation from "@/components/Recommendation.vue";
 
