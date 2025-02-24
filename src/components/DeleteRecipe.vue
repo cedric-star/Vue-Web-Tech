@@ -74,6 +74,9 @@ export default {
   border: 4px solid var(--light-orange);
   border-radius: 2px;
 }
+h3 {
+  color: var(--dark-orange);
+}
 .all {
   padding: 10px;
   margin: 10px;

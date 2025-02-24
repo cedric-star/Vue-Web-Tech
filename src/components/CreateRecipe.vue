@@ -105,6 +105,9 @@
 </script>
 
 <style scoped>
+h3 {
+  color: var(--dark-orange);
+}
 #responseText {
   font-size: smaller;
   color: var(--dark-orange);

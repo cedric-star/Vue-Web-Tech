@@ -19,10 +19,10 @@ body, html {
     color: var(--dark-font);
 }
 p {
-  color: var(--dark-font);
+  color: var(--dark-orange);
 }
 RouterLink, a{
-  color: var(--dark-font);
+  color: var(--dark-orange);
 }
 .foot_items {
     position: fixed;
