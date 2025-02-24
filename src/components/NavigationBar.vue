@@ -32,7 +32,7 @@ export default {
 <style scoped>
 .nav_list {
   font-size: medium;
-  color: rgb(186, 72, 30);
+  color: var(--strong-orange);
   text-decoration: none;
 }
 .nav_list:hover {
@@ -49,7 +49,7 @@ body, html {
 }
 .navigator {
   margin: 0;
-  background-color: antiquewhite;
+  background-color: var(--light-orange);
   left: 0;
   right: 0;
   top: 0;
@@ -57,16 +57,16 @@ body, html {
   border-radius: 2px;
 }
 button {
-  background-color: rgb(186, 72, 30);
-  color: antiquewhite;
-  border: solid rgb(186, 72, 30);
+  background-color: var(--strong-orange);
+  color: var(--light-orange);
+  border: solid var(--strong-orange);
   border-radius: 2px;
   padding: 2px;
   margin: 2px;
   cursor: pointer;
 }
 button:hover {
-  background-color: rgb(103, 38, 14);
-  border-color: rgb(103, 38, 14);
+  background-color: var(--dark-orange);
+  border-color: var(--dark-orange);
 }
 </style>

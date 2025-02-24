@@ -47,10 +47,13 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  padding-left: 5px;
+}
 button {
-  background-color: rgb(186, 72, 30);
-  color: antiquewhite;
-  border: solid rgb(186, 72, 30);
+  background-color: var(--strong-orange);
+  color: var(--light-orange);
+  border: solid var(--strong-orange);
   border-radius: 2px;
   padding: 2px;
   margin: 2px;
@@ -59,7 +62,7 @@ button {
   text-align: center;
 }
 button:hover {
-  background-color: rgb(103, 38, 14);
-  border-color: rgb(103, 38, 14);
+  background-color: var(--dark-orange);
+  border-color: var(--dark-orange);
 }
 </style>

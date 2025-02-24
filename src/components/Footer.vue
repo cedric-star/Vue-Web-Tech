@@ -25,7 +25,7 @@ RouterLink, a{
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: antiquewhite;
+    background-color: var(--light-orange);
     text-align: center;
     border-radius: 2px;
     display: grid;

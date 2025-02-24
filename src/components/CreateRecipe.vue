@@ -107,10 +107,10 @@
 <style scoped>
 #responseText {
   font-size: smaller;
-  color: rgb(80, 28, 12);
+  color: var(--dark-orange);
   width: fit-content;
-  background-color: #ffb599;
-  border: 4px solid #ffb599;
+  background-color: var(--light-orange);
+  border: 4px solid var(--light-orange);
   border-radius: 2px;
 }
 .all {
@@ -122,7 +122,7 @@
     display: grid;
 }
 input, textarea, select {
-    background-color: antiquewhite;
+    background-color: var(--light-orange);
     border: 1px solid black;
     margin: 2px;
     padding: 2px;
@@ -132,9 +132,9 @@ input, textarea, select {
     min-width: 50px;
 }
 button {
-    background-color: rgb(186, 72, 30);
-    color: antiquewhite;
-    border: solid rgb(186, 72, 30);
+    background-color: var(--strong-orange);
+    color: var(--light-orange);
+    border: solid var(--strong-orange);
     border-radius: 2px;
     padding: 2px;
     margin: 2px;
@@ -143,7 +143,7 @@ button {
     text-align: center;
 }
 button:hover {
-    background-color: rgb(103, 38, 14);
-    border-color: rgb(103, 38, 14);
+    background-color: var(--dark-orange);
+    border-color: var(--dark-orange);
 }
 </style>
