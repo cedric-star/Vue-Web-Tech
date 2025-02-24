@@ -54,7 +54,7 @@ header {
   font-size: large;
 }
 .routerLinkCl {
-  color: black;
+  color: var(--black);
   text-decoration: none;
 }
 .routerLinkCl:hover {

@@ -23,7 +23,7 @@ body, html {
   scrollbar-width: thin;
 }
 #content {
-  padding-bottom: 50px;/*place for footer*/
+  padding-bottom: 50px;
 }
 </style>
 

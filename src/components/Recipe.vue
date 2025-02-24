@@ -33,7 +33,7 @@
         type: String,
         required: true
       }
-    }
+    },
   }
 </script>
 
@@ -41,7 +41,7 @@
 .recipe {
   padding: 4px;
   margin: 4px;
-  border: 1px solid black;
+  border: 1px solid var(--black);
   border-radius: 4px;
 }
 h4 {

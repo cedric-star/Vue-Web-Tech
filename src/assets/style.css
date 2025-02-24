@@ -3,5 +3,15 @@
     --dark-orange: rgb(80, 28, 12);
     --light-orange: antiquewhite;
     --strong-orange: rgb(186, 72, 30);
+    --dark-font: #000000;
+    --light-font: #FFFFFF;
+}
 
+[data-theme="dark"] {
+    --background-orange: #230703;
+    --dark-orange: #ffd5a1;
+    --light-orange: #000000;
+    --strong-orange: antiquewhite;
+    --dark-font: #FFFFFF;
+    --light-font: #000000;
 }

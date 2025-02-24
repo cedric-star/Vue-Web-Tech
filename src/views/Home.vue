@@ -59,7 +59,7 @@ export default {
 .container {
     margin: 0;
     padding: 0;
-    background-color: coral;
+    background-color: var(--background-orange);
     text-align: center;
 }
 .head {

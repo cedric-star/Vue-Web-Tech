@@ -16,9 +16,13 @@ export default {
 body, html {
     margin: 0;
     padding: 0;
+    color: var(--dark-font);
+}
+p {
+  color: var(--dark-font);
 }
 RouterLink, a{
-  color: black;
+  color: var(--dark-font);
 }
 .foot_items {
     position: fixed;

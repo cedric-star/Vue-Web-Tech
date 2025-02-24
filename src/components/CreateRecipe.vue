@@ -1,7 +1,7 @@
 <template>
   <button @click="this.toggleContent()">Create Recipe</button>
   <div class="all" id="all" v-if="showField">
-    <h3>Create you´r {{typeChoosen}} Recipe</h3>
+    <h3>Create your {{typeChoosen}} Recipe</h3>
 
     <input placeholder="Recipe Name" type="text" name="name" id="name" v-model="this.name">
     <select name="type" id="type" v-model="this.typeChoosen">
@@ -110,20 +110,21 @@
   color: var(--dark-orange);
   width: fit-content;
   background-color: var(--light-orange);
-  border: 4px solid var(--light-orange);
+  border: 1px solid var(--dark-font);
   border-radius: 2px;
 }
 .all {
     padding: 10px;
     margin: 10px;
     padding-top: 0;
-    border: 1px solid black;
+    border: 1px solid var(--dark-font);
     border-radius: 4px;
     display: grid;
 }
 input, textarea, select {
     background-color: var(--light-orange);
-    border: 1px solid black;
+    border: 1px solid var(--dark-font);
+    color: var(--dark-font);
     margin: 2px;
     padding: 2px;
     border-radius: 2px;

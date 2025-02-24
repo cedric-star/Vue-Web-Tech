@@ -1,5 +1,4 @@
 <script>
-
 export default {
   props: {
     text: {
@@ -16,6 +15,12 @@ export default {
 
 
 <template>
-  <p><b>{{ title }}</b></p>
-  <p v-html="text"></p>
+  <b><p class="txt">{{ title }}</p></b>
+  <p class="txt" v-html="text"></p>
 </template>
+
+<style>
+p {
+  color: var(--dark-font)}
+
+</style>

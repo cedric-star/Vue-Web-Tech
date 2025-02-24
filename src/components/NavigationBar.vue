@@ -11,6 +11,9 @@
     </div>
     <div class="rollout">
       <button @click="this.toggleContent()">Navigation</button>
+
+      <input type="checkbox" v-model="isDarkMode"><nobr></nobr>
+      <p>{{ this.theme }}</p><nobr></nobr>
     </div>
   </header>
 </template>
@@ -19,11 +22,23 @@
 export default {
   name: 'NavigationBar',
   methods: {
-    toggleContent() {this.showField = !this.showField}
+    toggleContent() {this.showField = !this.showField},
   },
   data() {
     return {
-      showField: false
+      showField: false,
+      theme: 'light',
+      isDarkMode: localStorage.getItem('theme') === 'dark'
+    }
+  },
+  watch: {
+    isDarkMode: {
+      handler(val) {
+        const theme = val ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+      },
+      immediate: true,
     }
   }
 }
@@ -64,6 +79,9 @@ button {
   padding: 2px;
   margin: 2px;
   cursor: pointer;
+}
+input {
+  background-color: var(--strong-orange);
 }
 button:hover {
   background-color: var(--dark-orange);

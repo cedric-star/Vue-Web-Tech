@@ -78,13 +78,14 @@ export default {
   padding: 10px;
   margin: 10px;
   padding-top: 0;
-  border: 1px solid black;
+  border: 1px solid var(--dark-font);
   border-radius: 4px;
   display: grid;
 }
 input, select {
+  color: var(--dark-font);
   background-color: var(--light-orange);
-  border: 1px solid black;
+  border: 1px solid var(--dark-font);
   margin: 2px;
   padding: 2px;
   border-radius: 2px;
