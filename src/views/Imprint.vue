@@ -24,6 +24,9 @@ export default {
 </script>
 
 <style scoped>
+p {
+  color: var(--dark-orange);
+}
 html, body {
   align-content: center;
 }

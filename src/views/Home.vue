@@ -52,6 +52,9 @@ export default {
 </script>
 
 <style scoped>
+p {
+  color: var(--dark-orange);
+}
 #addSmallP {
   bottom: 0;
   font-size: 11px;
@@ -59,11 +62,11 @@ export default {
 .container {
     margin: 0;
     padding: 0;
-    background-color: var(--background-orange);
     text-align: center;
 }
 .head {
   padding: 6px;
+  color: var(--dark-orange);
 }
 #pictures {
   display: flex;

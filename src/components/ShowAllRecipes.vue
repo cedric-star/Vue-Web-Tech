@@ -49,6 +49,7 @@ export default {
 <style scoped>
 h2 {
   padding-left: 5px;
+  color: var(--dark-orange);
 }
 button {
   background-color: var(--strong-orange);

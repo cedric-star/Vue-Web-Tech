@@ -2,7 +2,7 @@
   <div class="container">
     <img :src="getImagePath" alt="img">
     <div class="recommendation">
-      <b>{{fileName.replace('.jpg','')}}</b>
+      <p><b>{{fileName.replace('.jpg','')}}</b></p>
       <DisplayText class="textField" :title="`User${genRanNum}`" :text="text"/>
     </div>
   </div>

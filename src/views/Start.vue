@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <header><b>Welcome to the one and only Aroma Atlas</b></header>
+    <b><header>Welcome to the one and only Aroma Atlas</header></b>
     <img
         src="../assets/logo.png"
         alt="logo_picture"
@@ -52,9 +52,10 @@ li {
 }
 header {
   font-size: large;
+  color: var(--dark-orange);
 }
 .routerLinkCl {
-  color: var(--black);
+  color: var(--dark-orange);
   text-decoration: none;
 }
 .routerLinkCl:hover {

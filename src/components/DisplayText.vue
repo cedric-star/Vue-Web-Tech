@@ -21,6 +21,6 @@ export default {
 
 <style>
 p {
-  color: var(--dark-font)}
+  color: var(--dark-orange)}
 
 </style>

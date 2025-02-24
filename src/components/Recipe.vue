@@ -38,15 +38,20 @@
 </script>
 
 <style scoped>
+li::marker {
+  color: var(--dark-orange);
+}
 .recipe {
   padding: 4px;
   margin: 4px;
-  border: 1px solid var(--black);
+  border: 1px solid var(--dark-orange);
   border-radius: 4px;
 }
 h4 {
   padding: 0;
   margin: 0;
+  color: var(--dark-orange);
+
 }
 .attributes {
     margin: 0;

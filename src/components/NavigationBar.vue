@@ -9,11 +9,11 @@
         <li><router-link to="/imprint" class="nav_list">Imprint</router-link></li>
       </ul>
     </div>
-    <div class="rollout">
-      <button @click="this.toggleContent()">Navigation</button>
+    <div class="items" >
+      <button class="item" @click="this.toggleContent()">Navigation</button>
+      <p class="item">DarkMode:</p><nobr></nobr>
 
-      <input type="checkbox" v-model="isDarkMode"><nobr></nobr>
-      <p>{{ this.theme }}</p><nobr></nobr>
+      <input class="item" type="checkbox" v-model="isDarkMode">
     </div>
   </header>
 </template>
@@ -45,6 +45,13 @@ export default {
 </script>
 
 <style scoped>
+.items {
+}
+.item {
+  display: inline-block;
+  margin-right: 10px;
+
+}
 .nav_list {
   font-size: medium;
   color: var(--strong-orange);
@@ -79,6 +86,9 @@ button {
   padding: 2px;
   margin: 2px;
   cursor: pointer;
+}
+p {
+  color: var(--strong-orange);
 }
 input {
   background-color: var(--strong-orange);
