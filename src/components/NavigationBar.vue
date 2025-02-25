@@ -17,6 +17,7 @@
   </header>
 </template>
 
+
 <script>
 export default {
   name: 'NavigationBar',
