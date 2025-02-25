@@ -6,7 +6,7 @@
     <select name="type" id="type" v-model="this.typeChoosen">
       <option v-for="type in this.types">{{ type }}</option>
     </select>
-    <p id="responseText">{{ message }}</p>
+    <p id="responseText" v-html="this.message"></p>
 
     <button @click="this.deleteData()">Delete</button>
   </div>
@@ -43,8 +43,8 @@ export default {
     toggleContent() {this.showField = !this.showField;},
     checkAttributes() {
       if (!this.checkName) {
-        this.message = 'can´t send data:\n';
-        this.message+='change Name field\n';
+        this.message = 'can´t send data:<br>\n';
+        this.message+='change Name field, only characters and "-" and " ", max.  50 characters<br>\n';
         return false;
       }
       return true;

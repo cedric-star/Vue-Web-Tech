@@ -11,7 +11,7 @@
     <textarea placeholder="Process" name="process" id="process" v-model="this.process"></textarea>
     <input placeholder="Additives" type="text" name="additives" id="additives" v-model="this.additives">
 
-    <p id="responseText">{{ message }}</p>
+    <p id="responseText" v-html="this.message"></p>
     <Recipe :type="`${typeChoosen}`"
             :name="`${name}`"
             :ingredients="`${ingredients}`"
@@ -68,11 +68,11 @@
       toggleContent() {this.showField = !this.showField;},
       checkAttributes() {
         if (!this.checkName || !this.checkIngredients || !this.checkProcess || !this.checkAdditives) {
-          this.message = 'can´t send data:\n';
-          if (!this.checkName) this.message+='change Name field\n';
-          if (!this.checkIngredients) this.message+=' change Ingredients field\n';
-          if (!this.checkProcess) this.message+=' change Process field\n';
-          if (!this.checkAdditives) this.message+=' change Additives field\n';
+          this.message = 'can´t send data:<br>\n';
+          if (!this.checkName) this.message+='change Name field, only characters and "-" and " ", max.  50 characters<br>\n';
+          if (!this.checkIngredients) this.message+=' change Ingredients field, max. 800 characters<br>\n';
+          if (!this.checkProcess) this.message+=' change Process field\, max. 800 characters<br>\n';
+          if (!this.checkAdditives) this.message+=' change Additives field, max. 800 characters<br>\n';
           return false;
         }
         return true;

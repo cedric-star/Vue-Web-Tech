@@ -1,7 +1,7 @@
 
 export class CheckInput {
     constructor() {
-        this.regexName = /^[a-zA-Z]*$/;
+        this.regexName = /^[a-zA-ZäöüÄÖÜß\-\s]{1,50}$/;
         this.regesxText = /^[\s\S]{1,800}$/
     }
 
