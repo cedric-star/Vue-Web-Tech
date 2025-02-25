@@ -12,7 +12,6 @@
     <div class="items" >
       <button class="item" @click="this.toggleContent()">Navigation</button>
       <p class="item">DarkMode:</p><nobr></nobr>
-
       <input class="item" type="checkbox" v-model="isDarkMode">
     </div>
   </header>
