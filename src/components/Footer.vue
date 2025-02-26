@@ -16,16 +16,20 @@ export default {
 body, html {
     margin: 0;
     padding: 0;
+    color: var(--dark-font);
+}
+p {
+  color: var(--dark-orange);
 }
 RouterLink, a{
-  color: black;
+  color: var(--dark-orange);
 }
 .foot_items {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: antiquewhite;
+    background-color: var(--light-orange);
     text-align: center;
     border-radius: 2px;
     display: grid;

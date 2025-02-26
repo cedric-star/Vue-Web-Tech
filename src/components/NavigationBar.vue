@@ -9,8 +9,10 @@
         <li><router-link to="/imprint" class="nav_list">Imprint</router-link></li>
       </ul>
     </div>
-    <div class="rollout">
-      <button @click="this.toggleContent()">Navigation</button>
+    <div class="items" >
+      <button class="item" @click="this.toggleContent()">Navigation</button>
+      <p class="item">DarkMode:</p><nobr></nobr>
+      <input class="item" type="checkbox" v-model="isDarkMode">
     </div>
   </header>
 </template>
@@ -19,20 +21,39 @@
 export default {
   name: 'NavigationBar',
   methods: {
-    toggleContent() {this.showField = !this.showField}
+    toggleContent() {this.showField = !this.showField},
   },
   data() {
     return {
-      showField: false
+      showField: false,
+      theme: 'light',
+      isDarkMode: localStorage.getItem('theme') === 'dark'
+    }
+  },
+  watch: {
+    isDarkMode: {
+      handler(val) {
+        const theme = val ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+      },
+      immediate: true,
     }
   }
 }
 </script>
 
 <style scoped>
+.items {
+}
+.item {
+  display: inline-block;
+  margin-right: 10px;
+
+}
 .nav_list {
   font-size: medium;
-  color: rgb(186, 72, 30);
+  color: var(--strong-orange);
   text-decoration: none;
 }
 .nav_list:hover {
@@ -49,7 +70,7 @@ body, html {
 }
 .navigator {
   margin: 0;
-  background-color: antiquewhite;
+  background-color: var(--light-orange);
   left: 0;
   right: 0;
   top: 0;
@@ -57,16 +78,22 @@ body, html {
   border-radius: 2px;
 }
 button {
-  background-color: rgb(186, 72, 30);
-  color: antiquewhite;
-  border: solid rgb(186, 72, 30);
+  background-color: var(--strong-orange);
+  color: var(--light-orange);
+  border: solid var(--strong-orange);
   border-radius: 2px;
   padding: 2px;
   margin: 2px;
   cursor: pointer;
 }
+p {
+  color: var(--strong-orange);
+}
+input {
+  background-color: var(--strong-orange);
+}
 button:hover {
-  background-color: rgb(103, 38, 14);
-  border-color: rgb(103, 38, 14);
+  background-color: var(--dark-orange);
+  border-color: var(--dark-orange);
 }
 </style>

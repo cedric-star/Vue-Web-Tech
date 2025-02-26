@@ -1,0 +1,17 @@
+:root {
+    --background-orange: coral;
+    --dark-orange: rgb(80, 28, 12);
+    --light-orange: antiquewhite;
+    --strong-orange: rgb(186, 72, 30);
+    --dark-font: #000000;
+    --light-font: #FFFFFF;
+}
+
+[data-theme="dark"] {
+    --background-orange: #1c0700;
+    --dark-orange: antiquewhite;
+    --light-orange: #420000;
+    --strong-orange: antiquewhite;
+    --dark-font: #FFFFFF;
+    --light-font: #000000;
+}

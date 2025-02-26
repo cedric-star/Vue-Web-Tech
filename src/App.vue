@@ -18,12 +18,12 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: coral;
+  background-color: var(--background-orange);
   font-family: sans-serif;
   scrollbar-width: thin;
 }
 #content {
-  padding-bottom: 50px;/*place for footer*/
+  padding-bottom: 50px;
 }
 </style>
 

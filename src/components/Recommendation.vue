@@ -2,14 +2,14 @@
   <div class="container">
     <img :src="getImagePath" alt="img">
     <div class="recommendation">
-      <b>{{fileName.replace('.jpg','')}}</b>
+      <p><b>{{fileName.replace('.jpg','')}}</b></p>
       <DisplayText class="textField" :title="`User${genRanNum}`" :text="text"/>
     </div>
   </div>
 </template>
 
 <script>
-import DisplayText from "../components/DisplayText.vue";
+import DisplayText from "@/components/DisplayText.vue";
 
 export default {
   components: {DisplayText},
@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     getImagePath() {
-      return require(`../assets/recipe-pictures/${this.fileName}`);
+      return require(`@/assets/recipe-pictures/${this.fileName}`);
     },
     genRanNum() {
       return Math.floor(1000 + Math.random() * 9000).toString();

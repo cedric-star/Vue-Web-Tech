@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <header><b>Welcome to the one and only Aroma Atlas</b></header>
+    <b><header>Welcome to the one and only Aroma Atlas</header></b>
     <img
         src="../assets/logo.png"
         alt="logo_picture"
@@ -18,15 +18,12 @@
 </template>
 
 <script>
-import NavigationBar from '@/components/NavigationBar.vue';
-import Footer from '@/components/Footer.vue';
+
 import DisplayText from "@/components/DisplayText.vue";
 
 export default {
   components: {
-    DisplayText,
-    NavigationBar,
-    Footer
+    DisplayText
   },
   data() {
     return {
@@ -55,9 +52,10 @@ li {
 }
 header {
   font-size: large;
+  color: var(--dark-orange);
 }
 .routerLinkCl {
-  color: black;
+  color: var(--dark-orange);
   text-decoration: none;
 }
 .routerLinkCl:hover {

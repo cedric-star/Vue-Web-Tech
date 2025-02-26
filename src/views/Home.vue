@@ -12,17 +12,14 @@
 </template>
 
 <script>
-import NavigationBar from '../components/NavigationBar.vue';
-import Footer from '../components/Footer.vue';
+
 import DisplayText from "@/components/DisplayText.vue";
 import Recommendation from "@/components/Recommendation.vue";
 
 export default {
   components: {
     Recommendation,
-    DisplayText,
-    NavigationBar,
-    Footer
+    DisplayText
   },
   mounted: function() {
     let nameTitle = this.$route.params.name
@@ -55,6 +52,9 @@ export default {
 </script>
 
 <style scoped>
+p {
+  color: var(--dark-orange);
+}
 #addSmallP {
   bottom: 0;
   font-size: 11px;
@@ -62,11 +62,11 @@ export default {
 .container {
     margin: 0;
     padding: 0;
-    background-color: coral;
     text-align: center;
 }
 .head {
   padding: 6px;
+  color: var(--dark-orange);
 }
 #pictures {
   display: flex;

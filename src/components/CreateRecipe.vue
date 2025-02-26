@@ -1,7 +1,7 @@
 <template>
   <button @click="this.toggleContent()">Create Recipe</button>
   <div class="all" id="all" v-if="showField">
-    <h3>Create you´r {{typeChoosen}} Recipe</h3>
+    <h3>Create your {{typeChoosen}} Recipe</h3>
 
     <input placeholder="Recipe Name" type="text" name="name" id="name" v-model="this.name">
     <select name="type" id="type" v-model="this.typeChoosen">
@@ -11,7 +11,7 @@
     <textarea placeholder="Process" name="process" id="process" v-model="this.process"></textarea>
     <input placeholder="Additives" type="text" name="additives" id="additives" v-model="this.additives">
 
-    <p id="responseText">{{ message }}</p>
+    <p id="responseText" v-html="this.message"></p>
     <Recipe :type="`${typeChoosen}`"
             :name="`${name}`"
             :ingredients="`${ingredients}`"
@@ -68,11 +68,11 @@
       toggleContent() {this.showField = !this.showField;},
       checkAttributes() {
         if (!this.checkName || !this.checkIngredients || !this.checkProcess || !this.checkAdditives) {
-          this.message = 'can´t send data:\n';
-          if (!this.checkName) this.message+='change Name field\n';
-          if (!this.checkIngredients) this.message+=' change Ingredients field\n';
-          if (!this.checkProcess) this.message+=' change Process field\n';
-          if (!this.checkAdditives) this.message+=' change Additives field\n';
+          this.message = 'can´t send data:<br>\n';
+          if (!this.checkName) this.message+='change Name field, only characters and "-" and " ", max.  50 characters<br>\n';
+          if (!this.checkIngredients) this.message+=' change Ingredients field, max. 800 characters<br>\n';
+          if (!this.checkProcess) this.message+=' change Process field\, max. 800 characters<br>\n';
+          if (!this.checkAdditives) this.message+=' change Additives field, max. 800 characters<br>\n';
           return false;
         }
         return true;
@@ -105,25 +105,29 @@
 </script>
 
 <style scoped>
+h3 {
+  color: var(--dark-orange);
+}
 #responseText {
   font-size: smaller;
-  color: rgb(80, 28, 12);
+  color: var(--dark-orange);
   width: fit-content;
-  background-color: #ffb599;
-  border: 4px solid #ffb599;
+  background-color: var(--light-orange);
+  border: 1px solid var(--dark-font);
   border-radius: 2px;
 }
 .all {
     padding: 10px;
     margin: 10px;
     padding-top: 0;
-    border: 1px solid black;
+    border: 1px solid var(--dark-font);
     border-radius: 4px;
     display: grid;
 }
 input, textarea, select {
-    background-color: antiquewhite;
-    border: 1px solid black;
+    background-color: var(--light-orange);
+    border: 1px solid var(--dark-font);
+    color: var(--dark-font);
     margin: 2px;
     padding: 2px;
     border-radius: 2px;
@@ -132,9 +136,9 @@ input, textarea, select {
     min-width: 50px;
 }
 button {
-    background-color: rgb(186, 72, 30);
-    color: antiquewhite;
-    border: solid rgb(186, 72, 30);
+    background-color: var(--strong-orange);
+    color: var(--light-orange);
+    border: solid var(--strong-orange);
     border-radius: 2px;
     padding: 2px;
     margin: 2px;
@@ -143,7 +147,7 @@ button {
     text-align: center;
 }
 button:hover {
-    background-color: rgb(103, 38, 14);
-    border-color: rgb(103, 38, 14);
+    background-color: var(--dark-orange);
+    border-color: var(--dark-orange);
 }
 </style>

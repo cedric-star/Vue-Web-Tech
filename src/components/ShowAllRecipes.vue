@@ -10,6 +10,12 @@
             :type="item.type"
             :additives="item.additives"/>
   </div>
+  <div v-else>
+    <p>Loading {{type}} recepies</p>
+    <img v-if="type==='baking'" :src="getBakingPath" alt="img">
+    <img v-if="type==='cooking'" :src="getCookingPath" alt="img">
+
+  </div>
 </template>
 
 <script>
@@ -34,23 +40,52 @@ export default {
   },
   methods: {
     async loadDataFromServer() {
+      this.loadedData = false;
       let bc = new BackendConnector();
       const recipes = await bc.getRecipes(this.type);
-      this.loadedData = true;
+      setTimeout(() => {this.loadedData = true}, 4000);
       this.output = await JSON.parse(recipes);
     }
   },
   mounted() {
     this.loadDataFromServer();
+  },
+  computed: {
+    getCookingPath() {
+      return require(`@/assets/Pizzaspin.png`);
+    },
+    getBakingPath() {
+      return require(`@/assets/Kuchenspin.png`);
+    },
   }
 }
 </script>
 
 <style scoped>
+h2, p {
+  padding-left: 5px;
+  color: var(--dark-orange);
+}
+img {
+  align-self: center;
+  animation: spin 2.5s linear infinite;
+
+}
+@keyframes spin {
+  from {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(915px, 0px) rotate(-360deg);
+  }
+  to {
+    transform: translate(1830px, 0px) rotate(-720deg);
+  }
+}
 button {
-  background-color: rgb(186, 72, 30);
-  color: antiquewhite;
-  border: solid rgb(186, 72, 30);
+  background-color: var(--strong-orange);
+  color: var(--light-orange);
+  border: solid var(--strong-orange);
   border-radius: 2px;
   padding: 2px;
   margin: 2px;
@@ -59,7 +94,7 @@ button {
   text-align: center;
 }
 button:hover {
-  background-color: rgb(103, 38, 14);
-  border-color: rgb(103, 38, 14);
+  background-color: var(--dark-orange);
+  border-color: var(--dark-orange);
 }
 </style>
