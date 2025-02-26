@@ -3,6 +3,10 @@
     Visit all the {{ type }} recipes!
   </h2>
   <button @click="this.loadDataFromServer()">reload Recipes</button>
+  <nobr>-</nobr>
+  <input v-model="this.searchFor" placeholder="recipe name">
+  <button @click="this.sortRecipes()">search</button>
+
   <div v-if="loadedData" v-for="item in output">
     <Recipe :process="item.process"
             :ingredients="item.ingredients"
@@ -21,6 +25,7 @@
 <script>
 import Recipe from "@/components/Recipe.vue";
 import {BackendConnector} from "@/java-script/BackendConnector";
+import {RecipeSorter} from "@/java-script/RecipeSorter";
 
 export default {
   props: {
@@ -35,7 +40,8 @@ export default {
   data() {
     return {
       output: [],
-      loadedData: false
+      loadedData: false,
+      searchFor: ""
     }
   },
   methods: {
@@ -43,9 +49,17 @@ export default {
       this.loadedData = false;
       let bc = new BackendConnector();
       const recipes = await bc.getRecipes(this.type);
-      setTimeout(() => {this.loadedData = true}, 4000);
+      setTimeout(() => {this.loadedData = true}, 2500);
       this.output = await JSON.parse(recipes);
-    }
+    },
+    async sortRecipes() {
+      console.log('searching for: ',this.searchFor);
+      this.loadedData = false;
+
+      let sorter = new RecipeSorter(this.output, this.searchFor);
+      sorter.sort();
+
+    },
   },
   mounted() {
     this.loadDataFromServer();
@@ -62,8 +76,8 @@ export default {
 </script>
 
 <style scoped>
-h2, p {
-  padding-left: 5px;
+h2, p, nobr {
+  padding: 5px;
   color: var(--dark-orange);
 }
 img {
@@ -82,7 +96,7 @@ img {
     transform: translate(1830px, 0px) rotate(-720deg);
   }
 }
-button {
+button, input {
   background-color: var(--strong-orange);
   color: var(--light-orange);
   border: solid var(--strong-orange);
