@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <b><header>Welcome to the one and only Aroma Atlas</header></b>
+    <h3>Welcome to the one and only Aroma Atlas</h3>
     <img
         src="../assets/logo.png"
         alt="logo_picture"
@@ -8,11 +8,11 @@
     <div>
       <DisplayText :text="text" :title="title" />
       <p><b>Visit also:</b></p>
-      <ul class="routerLinks">
-        <li><RouterLink to="/home" class="routerLinkCl">Home Page</RouterLink></li>
-        <li><RouterLink to="/cooking" class="routerLinkCl">Cooking Recipes</RouterLink></li>
-        <li><RouterLink to="baking" class="routerLinkCl">Baking Recipes</RouterLink></li>
-      </ul>
+      <div class="routerLinks">
+        <div><RouterLink to="/home" class="routerLinkCl">Home Page</RouterLink></div>
+        <div><RouterLink to="/cooking" class="routerLinkCl">Cooking Recipes</RouterLink></div>
+        <div><RouterLink to="/baking" class="routerLinkCl">Baking Recipes</RouterLink></div>
+      </div>
     </div>
   </div>
 </template>
@@ -39,18 +39,16 @@ export default {
 
 <style scoped>
 .routerLinks {
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
+  margin-bottom: 10px;
 }
 .container {
   text-align: center;
   padding-top: 50px;
 }
-li {
+.routerLinkCl {
   padding: 10px;
 }
-header {
+h3 {
   font-size: large;
   color: var(--dark-orange);
 }
