@@ -29,7 +29,7 @@ export class BackendConnector {
         });
         if (!response.ok) {return 'response not ok'};
         const message = await response.text();
-        console.log('received: '+message);
+        console.log('received');
         return message;
     }
 }

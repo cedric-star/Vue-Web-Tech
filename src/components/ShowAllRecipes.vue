@@ -53,12 +53,13 @@ export default {
       this.output = await JSON.parse(recipes);
     },
     async sortRecipes() {
-      console.log('searching for: ',this.searchFor);
+      await this.loadDataFromServer();
       this.loadedData = false;
 
-      let sorter = new RecipeSorter(this.output, this.searchFor);
-      sorter.sort();
-
+      let sorter = new RecipeSorter();
+      let sorted = await sorter.sort(this.searchFor, this.output);
+      this.output = sorted;
+      this.loadedData = true;
     },
   },
   mounted() {
