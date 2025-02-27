@@ -58,11 +58,11 @@ export default {
       this.output = await JSON.parse(recipes);
       setTimeout(() => {this.loadedData = true}, 2500);
     },
-    async chechInput() {
+    async checkInput() {
       let str = this.searchFor;
       let checker = new CheckInput();
       if (!checker.checkName(str)||str.length<2)
-        {this.inputMsg = 'input allowed: only characters, "-" and " ", at least 2 characters!'}
+        {this.inputMsg = 'input allowed: only characters, "-" and " "'}
       else {
         this.inputMsg = '';
         return true;
@@ -70,7 +70,7 @@ export default {
       return false;
     },
     async sortRecipes() {
-      await this.chechInput();
+      await this.checkInput();
 
       await this.loadDataFromServer();
       this.loadedData = false;

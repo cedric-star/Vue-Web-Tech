@@ -4,10 +4,11 @@ export class RecipeSorter {
     }
 
     async sort(name, names) {
+        if (name.length===0) {return names}
         console.log('--sorting--');
 
         try {
-            for (let i = name.length; i > 1; i--) {
+            for (let i = name.length; i > 0; i--) {
                 let word = name.substring(0, i);
                 console.log('testing word: '+word);
 
