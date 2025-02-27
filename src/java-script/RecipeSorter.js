@@ -8,7 +8,6 @@ export class RecipeSorter {
 
         try {
             for (let i = name.length; i > 1; i--) {
-
                 let word = name.substring(0, i);
                 console.log('testing word: '+word);
 
@@ -16,7 +15,6 @@ export class RecipeSorter {
                     if (names[j].name.toLowerCase().includes(word.toLowerCase())&& !this.sorted.includes(names[j])) {
                         console.log('found: '+names[j].name);
                         this.sorted.push(names[j]);
-
                     }
                 }
 

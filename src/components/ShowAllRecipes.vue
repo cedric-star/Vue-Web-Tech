@@ -4,9 +4,12 @@
   </h2>
   <button @click="this.loadDataFromServer()">reload Recipes</button>
   <nobr>-</nobr>
-  <input v-model="this.searchFor" placeholder="recipe name">
+  <input v-model="this.searchFor" placeholder="recipe name" @change="this.sortRecipes()">
   <button @click="this.sortRecipes()">search</button>
-
+  <div v-if="loadedData&&output.length===0">
+    <p>no recipes found</p>
+    <p v-if="inputMsg.length>0">Error: {{ inputMsg }}</p>
+  </div>
   <div v-if="loadedData" v-for="item in output">
     <Recipe :process="item.process"
             :ingredients="item.ingredients"
@@ -14,6 +17,7 @@
             :type="item.type"
             :additives="item.additives"/>
   </div>
+
   <div v-else>
     <p>Loading {{type}} recepies</p>
     <img v-if="type==='baking'" :src="getBakingPath" alt="img">
@@ -26,6 +30,7 @@
 import Recipe from "@/components/Recipe.vue";
 import {BackendConnector} from "@/java-script/BackendConnector";
 import {RecipeSorter} from "@/java-script/RecipeSorter";
+import {CheckInput} from "@/java-script/CheckInput";
 
 export default {
   props: {
@@ -41,7 +46,8 @@ export default {
     return {
       output: [],
       loadedData: false,
-      searchFor: ""
+      searchFor: "",
+      inputMsg: '',
     }
   },
   methods: {
@@ -49,17 +55,30 @@ export default {
       this.loadedData = false;
       let bc = new BackendConnector();
       const recipes = await bc.getRecipes(this.type);
-      setTimeout(() => {this.loadedData = true}, 2500);
       this.output = await JSON.parse(recipes);
+      setTimeout(() => {this.loadedData = true}, 2500);
+    },
+    async chechInput() {
+      let str = this.searchFor;
+      let checker = new CheckInput();
+      if (!checker.checkName(str)||str.length<2)
+        {this.inputMsg = 'input allowed: only characters, "-" and " ", at least 2 characters!'}
+      else {
+        this.inputMsg = '';
+        return true;
+      }
+      return false;
     },
     async sortRecipes() {
+      await this.chechInput();
+
       await this.loadDataFromServer();
       this.loadedData = false;
 
       let sorter = new RecipeSorter();
-      let sorted = await sorter.sort(this.searchFor, this.output);
-      this.output = sorted;
-      this.loadedData = true;
+      this.output = await sorter.sort(this.searchFor, this.output);
+
+      setTimeout(()=>{this.loadedData = true}, 1500);
     },
   },
   mounted() {
