@@ -1,7 +1,11 @@
- services:
+services:
   vue-webtech-frontend:
     build: .
     container_name: vue-webteck-frontend
     restart: unless-stopped
-    network:
+    networks:
       - mynet
+
+networks:
+  mynet:
+    external: true 
