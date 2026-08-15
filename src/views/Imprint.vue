@@ -1,8 +1,74 @@
 <template>
-  <div class="all">
-    <DisplayText title="Imprint" :text="this.text"></DisplayText>
-  </div>
-  <p id="addSmallP">the imprint is freely made up</p>
+<h1>Impressum</h1>
+
+
+<h2>Angaben gemäß § 5 TMG / § 18 Abs. 2 MStV</h2>
+<address>
+  Cedric Wünsch<br>
+  Felsenstraße 21g]<br>
+  06114 Halle Saale<br>
+  Deutschland
+</address>
+
+<h2>Kontakt</h2>
+<ul>
+  <li>Telefon: 017651886923</li>
+  <li>E-Mail: <a href="mailto:cdrc.wnsch@gmail.com">cdrc.wnsch@gmail.com</a></li>
+</ul>
+
+
+
+<h2>Haftung für Inhalte</h2>
+<p>
+  Als Diensteanbieter bin ich gemäß § 8 Abs. 1 DDG für eigene Inhalte auf dieser
+  Seite nach den allgemeinen Gesetzen verantwortlich. Nach §§ 9 bis 11 DDG bin
+  ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte
+  fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine
+  rechtswidrige Tätigkeit hinweisen.
+</p>
+
+<h2>Haftung für Links</h2>
+<p>
+  Diese Website enthält gegebenenfalls Links zu externen Websites Dritter, auf
+  deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden
+  Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist
+  stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+</p>
+<p>
+  Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist mir ohne
+  konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden
+  von Rechtsverletzungen werde ich derartige Links umgehend entfernen. Für Schäden,
+  die aus der Nutzung oder Nichtnutzung der auf verlinkten Seiten dargebotenen
+  Informationen entstehen, übernehme ich keine Haftung.
+</p>
+
+<h2>Urheberrecht</h2>
+<p>
+  Die von mir selbst erstellten Inhalte und Werke auf dieser Seite unterliegen
+  dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und
+  jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen meiner
+  schriftlichen Zustimmung als Autor bzw. Ersteller.
+</p>
+<p>
+  Downloads und Kopien dieser Seite sind nur für den privaten, nicht
+  kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht von
+  mir erstellt wurden, werden die Urheberrechte Dritter beachtet. Sollten Sie auf eine
+  Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden
+  Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte
+  umgehend entfernen. Für die Inhalte fremder, verlinkter oder eingebundener
+  Werke übernehme ich keine Haftung.
+</p>
+
+<h2>Haftungsausschluss (allgemein)</h2>
+<p>
+  Alle auf dieser Website bereitgestellten Informationen dienen ausschließlich
+  privaten, informativen Zwecken und erheben keinen Anspruch auf Vollständigkeit,
+  Aktualität oder Richtigkeit. Eine Haftung für Schäden materieller oder
+  immaterieller Art, die durch die Nutzung oder Nichtnutzung der auf dieser
+  Website bereitgestellten Informationen verursacht werden, ist – soweit
+  gesetzlich zulässig – ausgeschlossen.
+</p>
+
 </template>
 
 <script>

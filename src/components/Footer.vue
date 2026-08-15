@@ -1,6 +1,6 @@
 <template>
   <footer class="foot_items">
-    <p><RouterLink to="/imprint">Imprint</RouterLink></p>
+    <p><RouterLink to="/imprint">Impressum</RouterLink></p>
     <p>©Cedric Wünsch</p>
     <p><a href="https://github.com/cedric-star/Vue-Web-Tech">Documentation</a></p>
   </footer>
