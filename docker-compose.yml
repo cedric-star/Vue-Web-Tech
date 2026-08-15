@@ -3,5 +3,5 @@
     build: .
     container_name: vue-webteck-frontend
     restart: unless-stopped
-    ports:
-      - "8001:8080"
+    network:
+      - mynet
