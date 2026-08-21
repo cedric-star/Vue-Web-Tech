@@ -1,10 +1,41 @@
 services:
   vue-webtech-frontend:
     build: .
-    container_name: vue-webteck-frontend
-    restart: unless-stopped
+    container_name: vue-webtech-frontend
     networks:
       - mynet
+
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:8080"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    labels:
+      - "traefik.enable=true"
+
+      # Routing / Subdomain
+      - "traefik.http.routers.vue-frontend.rule=Host(`vue-frontend.micedric.dpdns.org`)"
+      - "traefik.http.routers.vue-frontend.entrypoints=websecure"
+      - "traefik.http.routers.vue-frontend.tls.certresolver=myresolver"
+      - "traefik.http.routers.vue-frontend.middlewares=vue-frontend-sablier"
+      - "traefik.http.services.vue-frontend.loadbalancer.server.port=8080"
+
+      # Sablier: Container darf trotz Stopp im Routing bleiben (Traefik >= v3.6 nötig)
+      - "traefik.docker.allownonrunning=true"
+
+      # Sablier-Gruppierung
+      - "sablier.enable=true"
+      - "sablier.group=vue-frontend"
+
+      # Sablier-Middleware-Konfiguration (Traefik-Plugin)
+      - "traefik.http.middlewares.vue-frontend-sablier.plugin.sablier.group=vue-frontend"
+      - "traefik.http.middlewares.vue-frontend-sablier.plugin.sablier.sablierUrl=http://sablier:10000"
+      - "traefik.http.middlewares.vue-frontend-sablier.plugin.sablier.sessionDuration=15m"
+      - "traefik.http.middlewares.vue-frontend-sablier.plugin.sablier.dynamic.displayName=Vue Frontend"
+      - "traefik.http.middlewares.vue-frontend-sablier.plugin.sablier.dynamic.theme=hacker-terminal"
+      - "traefik.http.middlewares.vue-frontend-sablier.plugin.sablier.dynamic.refreshFrequency=3s"
+
 
 networks:
   mynet:
